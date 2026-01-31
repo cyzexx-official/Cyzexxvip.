@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYZEXX.COM — Smart Trading</title>
+<style>
+body { margin:0; font-family: Arial, sans-serif; background:#000; color:#d4af37; }
+header { padding:20px; text-align:center; border-bottom:1px solid #d4af37; background: rgba(0,0,0,0.85); position:sticky; top:0; z-index:1000;}
+nav a { color:#d4af37; margin:0 10px; text-decoration:none; font-weight:bold; cursor:pointer; }
+nav a:hover { text-decoration:underline; }
+section { padding:40px 20px; display:none; background: url('https://images.unsplash.com/photo-1609944827433-74e9180cf1d0?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed; background-size: cover; min-height: 90vh; }
+section.active { display:block; }
+h1,h2,h3 { color:#d4af37; }
+.box { border:1px solid #d4af37; padding:20px; margin:20px 0; background: rgba(0,0,0,0.6); border-radius:10px; }
+button { background:#d4af37; color:#000; padding:10px 20px; border:none; cursor:pointer; font-weight:bold; margin-top:10px; border-radius:5px;}
+input { padding:8px; margin:5px 0; width:100%; border-radius:5px; border:none; }
+.footer { text-align:center; opacity:.7; font-size:14px; margin-top:40px;}
+a.telegram { color:#1DA1F2; text-decoration:none; font-weight:bold; }
+a.instagram { color:#FF2D55; text-decoration:none; font-weight:bold; }
+a.phone { color:#00FF00; text-decoration:none; font-weight:bold; }
+#vip { background:#111; color:#fff; padding:20px; }
+.vip-section { border:1px solid #d4af37; padding:15px; margin:15px 0; border-radius:10px; background: rgba(0,0,0,0.6); }
+.tradingview-widget-container { height:400px; margin-bottom:20px; }
+@media (max-width:768px){ .tradingview-widget-container { height:300px; } }
+</style>
+<script>
+function show(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+function vipLogin(){
+  let u=document.getElementById("user").value;
+  let p=document.getElementById("pass").value;
+  if(u==="Cyzexxvip" && p==="10072008Hb$"){
+    show("vip");
+  } else {
+    alert("Login yoki parol noto‘g‘ri");
+  }
+}
+</script>
+</head>
+<body>
+
+<header>
+  <h1>CYZEXX.COM</h1>
+  <p>SMART TRADING. REAL KNOWLEDGE.</p>
+  <nav>
+    <a onclick="show('home')">Home</a>
+    <a onclick="show('why')">Nima uchun CYZEXX.COM?</a>
+    <a onclick="show('grafik')">Grafik</a>
+    <a onclick="show('community')">Admin & Community</a>
+    <a onclick="show('login')">VIP Zone</a>
+    <a onclick="show('partners')">Hamkorlar</a>
+  </nav>
+</header>
+
+<!-- 1. HOME -->
+<section id="home" class="active">
+  <h2>Assalomu alaykum</h2>
+  <p><b>CYZEXX.COM ga xush kelibsiz!</b></p>
+  <p>Ushbu sayt faqat texnik tahlil uchun mo‘ljallangan.</p>
+  <p>Savdo qarorlari va har qanday risk sizning o‘zingizning javobgarligingizda.</p>
+  <p>Biz sizga to‘g‘ri tahlil va bilim beramiz, tez boyishni va’da qilmaymiz.</p>
+  <p>CYZEXX.COM orqali siz bozorni tushunish, indikatorlarni o‘rganish va ongli trading qilishni o‘rganasiz.</p>
+  <div class="box">
+    <h3>Foydali imkoniyatlar:</h3>
+    <ul>
+      <li>📊 Real-time market narxlari (BTC/ETH va boshqa instrumentlar)</li>
+      <li>🧠 Premium darslar va texnik tahlil</li>
+      <li>💹 Savdoni o‘rganish va indikatorlarni o‘rnatish</li>
+      <li>👥 Telegram va Instagram orqali community</li>
+    </ul>
+    <button onclick="show('why')">Nima uchun CYZEXX.COM?</button>
+  </div>
+</section>
+
+<!-- 2. WHY CYZEXX -->
+<section id="why">
+  <h2>Nima uchun CYZEXX.COM?</h2>
+  <p>Sayt 2026 yilda rasmiy ishga tushirildi.</p>
+  <p>Pul ishlashga mo‘ljallangan indikatorlar va darslar partnerlar bilan tekinga ishlatilishi mumkin.</p>
+  <h3>CYZEXX.COM’da sodir bo‘ladigan asosiy imkoniyatlar:</h3>
+  <ul>
+    <li>Live Market Data – BTC/ETH va boshqa instrumentlar real vaqtda.</li>
+    <li>Trading Education – Boshlovchilar va o‘rta darajali treyderlar uchun: EMA, Risk Management, Psixologiya.</li>
+    <li>Market Analysis – Kundalik va haftalik texnik tahlillar, chartlar, trendlar.</li>
+    <li>Community – Telegram va Instagram orqali bozor muhokamasi, qisqa tahlillar.</li>
+    <li>VIP Zone – Maxsus indikatorlar va premium setuplar (login/parol bilan).</li>
+  </ul>
+  <p>Sayt orqali siz independent trader bo‘lishga o‘rganasiz, ya’ni o‘z pulingizni o‘zingiz boshqarasiz.</p>
+</section>
+
+<!-- 3. GRAFIK -->
+<section id="grafik">
+  <h2>Live Market</h2>
+  <p>Hammasi instrumentlar real-time chartlarda ko‘rinadi:</p>
+  <div class="box">
+    <h3>BTCUSDT — Japanese Candlestick</h3>
+    <div class="tradingview-widget-container">
+      <div id="btc_candle_chart"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+      {
+        "symbol": "BINANCE:BTCUSDT",
+        "interval": "60",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "autosize": true,
+        "studies": ["EMA@tv-basicstudies","EMA@tv-basicstudies"]
+      }
+      </script>
+    </div>
+    <h3>ETHUSDT — Japanese Candlestick</h3>
+    <div class="tradingview-widget-container">
+      <div id="eth_candle_chart"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+      {
+        "symbol": "BINANCE:ETHUSDT",
+        "interval": "60",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "autosize": true,
+        "studies": ["EMA@tv-basicstudies","EMA@tv-basicstudies"]
+      }
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- 4. COMMUNITY -->
+<section id="community">
+  <h2>Admin & Community</h2>
+  <p>Murojaat uchun: <a class="phone" href="tel:+998889410708">+998889410708</a></p>
+  <p>Admin Telegram: <a class="telegram" href="https://t.me/Cyzexx337" target="_blank">Telegram</a></p>
+  <p>Instagram: <a class="instagram" href="https://www.instagram.com/berd1murodov.fx" target="_blank">@berd1murodov.fx</a></p>
+  <p>VIP darslik kanali: <a class="telegram" href="https://t.me/+Ymeco6olnC81Yzgy" target="_blank">Darslik kanali</a></p>
+  <p>Ushbu kanallar orqali bilimingizni oshirishingiz mumkin.</p>
+</section>
+
+<!-- 5. VIP ZONE -->
+<section id="login">
+  <h2>VIP LOGIN</h2>
+  <div class="box">
+    <input id="user" placeholder="Login">
+    <input id="pass" type="password" placeholder="Parol">
+    <button onclick="vipLogin()">Kirish</button>
+    <p>Login: <b>Cyzexxvip</b></p>
+    <p>Parol: <b>10072008Hb$</b></p>
+  </div>
+</section>
+
+<section id="vip">
+  <h2>VIP ZONE</h2>
+  <div class="vip-section">
+    <h3>1️⃣ Grafiklar va instrumentlar</h3>
+    <p>Hammasi instrumentlar real-time chartlarda:</p>
+    <p>Indikatorlar va partnerlar ham bu bo‘limda mavjud.</p>
+  </div>
+  <div class="vip-section">
+    <h3>2️⃣ Telegram darslik kanali</h3>
+    <p><a class="telegram" href="https://t.me/+Ymeco6olnC81Yzgy" target="_blank">VIP Darslik kanali</a></p>
+    <p>Ushbu kanallar orqali bilimingizni oshirishingiz mumkin.</p>
+  </div>
+</section>
+
+<!-- 6. PARTNERS -->
+<section id="partners">
+  <h2>Bizning Hamkorimiz</h2>
+  <h3>Bitget Krypto Birjasi</h3>
+  <p>Nima uchun Bitget Krypto Birjasi:</p>
+  <p>Ushbu birjada depozit summasi kichik, tushunish oson, do‘stlarni taklif qilib pul ishlash mumkin. Treyd uchun eng yaxshi birjalardan biri 🔥</p>
+</section>
+
+<div class="footer">
+⚠️ CYZEXX — moliyaviy maslahat bermaydi. Barcha savdolar foydalanuvchi javobgarligida.
+</div>
+
+</body>
+                                                                                     </html>
